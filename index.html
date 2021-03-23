@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container" id="root">
+        <div class="container-left">
+            
+            <header>
+                <div class="header-left">
+                    
+                    <div class="inner-left">
+                        <img class="circle" src="img/avatar_io.jpg" alt="">
+                        <span>Nome Utente</span>
+                    </div>
+                    
+                    <div class="inner-right">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                
+                </div>
+            </header>
+            
+            <main>
+                <div class="main-top">
+                    <div class="circle white">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    <ul>
+                        <li><span>Ricevi notifiche di nuovi messaggi</span></li>
+                        <li><a href="#">attiva notifiche desktop</a></li>
+                    </ul>
+                </div>
+                <div class="contacts">
+                   
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input placeholder="Cerca o inizia una nuova chat" type="text">
+                    </div>
+                   
+                    <div class="friends">
+                        
+                        <div class="friend" v-for="(contact, index) in contacts">
+                            <img class="circle" :src="path + contacts[index].avatar + format" alt="">
+                            <span>{{contacts[index].name}}</span>
+                        </div>
+                    
+                    </div>
+                </div>
+            </main>
+        
+        </div>
+        <div class="container-right">
+            
+            <header>
+                <div class="header-right">
+                    
+                    <div class="inner-left">
+                        <img class="circle" src="img/avatar_1.jpg" alt="">
+                        <ul>
+                            <li>Michele</li>
+                            <li>Ultimo accesso oggi alle</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="inner-right">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <main>
+                <div class="messages">
+                    <div v-for="(message, index) in contacts[0].messages" :class="(message.status == 'sent') ? 'flex-end' : 'flex-start'" class="message">
+                        <div :class="(message.status == 'sent') ? 'sent' : 'received'">
+                            {{message.text}}
+                            <span class="data">{{message.date}}</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer>
+                <i class="far fa-smile"></i>
+                <input placeholder="Scrivi un messaggio" type="text">
+                <i class="fas fa-microphone"></i>
+            </footer>
+        
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
