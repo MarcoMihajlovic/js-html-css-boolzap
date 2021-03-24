@@ -6,6 +6,11 @@ var app = new Vue ({
         format: ".jpg",
         counter: 0,
 
+        user: {
+            name: 'Nome Utente',
+            avatar: '_io'
+        },
+
         contacts: [
                 {
                     name: 'Michele',
@@ -87,11 +92,13 @@ var app = new Vue ({
                         }],
                 },
         ],
-
-        computed: {
-            function() {
-                console.log(avatar.length);
-            }
+    },
+    
+    methods: {
+        click: function(index) {
+            this.counter = index
         }
     }
 })
+
+Vue.config.devtools = true;

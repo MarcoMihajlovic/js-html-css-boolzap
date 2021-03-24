@@ -142,6 +142,10 @@ header {
     width: 70%;
 }
 
+.friends .active {
+    background-color: gray;
+}
+
 .header-right {
     display: flex;
     justify-content: space-between;

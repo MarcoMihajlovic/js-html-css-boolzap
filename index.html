@@ -21,8 +21,8 @@
                 <div class="header-left">
                     
                     <div class="inner-left">
-                        <img class="circle" src="img/avatar_io.jpg" alt="">
-                        <span>Nome Utente</span>
+                        <img class="circle" :src="path + user.avatar + format" alt="">
+                        <span>{{user.name}}</span>
                     </div>
                     
                     <div class="inner-right">
@@ -53,7 +53,7 @@
                    
                     <div class="friends">
                         
-                        <div class="friend" v-for="(contact, index) in contacts">
+                        <div  v-for="(contact, index) in contacts" :class="(index == counter) ? 'active' : null" class="friend" @click="click(index)">
                             <img class="circle" :src="path + contacts[index].avatar + format" alt="">
                             <span>{{contacts[index].name}}</span>
                         </div>
@@ -69,9 +69,9 @@
                 <div class="header-right">
                     
                     <div class="inner-left">
-                        <img class="circle" src="img/avatar_1.jpg" alt="">
+                        <img class="circle" :src="path + contacts[counter].avatar + format" alt="">
                         <ul>
-                            <li>Michele</li>
+                            <li>{{contacts[counter].name}}</li>
                             <li>Ultimo accesso oggi alle</li>
                         </ul>
                     </div>
@@ -86,7 +86,7 @@
             
             <main>
                 <div class="messages">
-                    <div v-for="(message, index) in contacts[0].messages" :class="(message.status == 'sent') ? 'flex-end' : 'flex-start'" class="message">
+                    <div v-for="(message, index) in contacts[counter].messages" :class="(message.status == 'sent') ? 'flex-end' : 'flex-start'" class="message">
                         <div :class="(message.status == 'sent') ? 'sent' : 'received'">
                             {{message.text}}
                             <span class="data">{{message.date}}</span>
