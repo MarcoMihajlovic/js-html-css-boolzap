@@ -5,8 +5,10 @@
 }
 
 body {
-    height: 94vh;
+    height: 100vh;
+    margin: 0 auto;
     font-size: 16px;
+    overflow-y: hidden;
     font-family: 'Roboto', sans-serif;
     background: -webkit-linear-gradient(top, #009688, #009688 15%,#dbdbd3 0%, #dbdbd3);
 }
@@ -19,7 +21,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
-    height: 650px;
+    height: 90%;
     background-color: white;
     border: 1px solid black;
 }
@@ -140,6 +142,7 @@ header {
 
 .container-right {
     width: 70%;
+    position: relative;
 }
 
 .friends .active {
@@ -166,19 +169,24 @@ header {
     color: grey;
 }
 
-footer {
+.footer {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 50px;
     background-color: #eaeaea;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
 }
 
-footer > i {
+.footer > i {
     margin: 0 20px;
 }
 
-footer > input {
+.footer > input {
     padding: 8px 10px;
     width: 85%;
     border-radius: 8px;
@@ -187,35 +195,49 @@ footer > input {
 }
 
 .container-right > main {
-    height: 550px;
+    height: 100%;
+    position: relative;
     background-image: url("../img/mine.jpg");
 }
 
 .messages {
     height: 100%;
     overflow: auto;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     font-size: 15px;
     padding-top: 20px;
+    padding-bottom: 200px;
+}
+
+.writing {
+    position: absolute;
+    bottom: 8%;
+    left: 1%;
+    color: grey;
+    display: none;
+}
+
+.container-right .show {
+    display: block;
 }
 
 .sent {
-    position: relative;
     background: #d5f9ba;
     padding: 20px;
     border-radius: 15px;
     width: 40%;
     margin: 10px 0;
+    margin-right: 5%;
 }
 
 .received {
-    position: relative;
     background: white;
     padding: 20px;
     border-radius: 15px;
     width: 40%;
     margin: 10px 0;
+    margin-left: 5%;
 }
 
 .data {

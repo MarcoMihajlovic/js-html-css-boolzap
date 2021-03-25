@@ -95,12 +95,16 @@
                 </div>
             </main>
 
-            <footer>
+            <div id="writing" class="writing">
+                <span>{{contacts[counter].name}} sta scrivendo</span>
+            </div>
+
+            <div class="footer">
                 <i class="far fa-smile"></i>
-                <input placeholder="Scrivi un messaggio" type="text">
+                <input @keyup.enter='newMessage(counter)' v-model="newText" placeholder="Scrivi un messaggio" type="text">
                 <i class="fas fa-microphone"></i>
-            </footer>
-        
+            </div>
+
         </div>
     </div>
     <script src="js/main.js"></script>

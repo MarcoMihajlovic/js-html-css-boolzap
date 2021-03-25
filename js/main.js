@@ -5,6 +5,7 @@ var app = new Vue ({
         path: "img/avatar",
         format: ".jpg",
         counter: 0,
+        newText: "",
 
         user: {
             name: 'Nome Utente',
@@ -97,7 +98,39 @@ var app = new Vue ({
     methods: {
         click: function(index) {
             this.counter = index
+        },
+
+        newMessage: function() {
+
+            let thisContact = this.contacts[this.counter]; 
+
+            var newMessage = {
+                date:'',
+                text: this.newText,
+                status: 'sent' 
+            };
+
+            var receivedMessage = {
+                date:'',
+                text:'Ok',
+                status:'received'
+            };
+
+            let response = setInterval(() => {
+                document.getElementById("writing").classList.add("show");
+            },0);
+
+            setTimeout(() => {
+                clearInterval(response);
+                document.getElementById("writing").classList.remove("show");
+                thisContact.messages.push(receivedMessage);
+            }, 1000);
+
+            thisContact.messages.push(newMessage);
+
+            this.newText = '';
         }
+
     }
 })
 
