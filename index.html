@@ -98,7 +98,7 @@
                                 <a href="#" @click="dropdown_menu(index)"><i class="fas fa-chevron-down dropdown"></i></a>
                                 <div id="myDropdown" class="dropdown-content">
                                     <a href="#">Message Info</a>
-                                    <a @click="delete_message" href="#">Delete message</a>
+                                    <a @click="delete_message(index)" href="#">Delete message</a>
                                 </div>
                             </div>
                             <span class="data">{{message.date}}</span>

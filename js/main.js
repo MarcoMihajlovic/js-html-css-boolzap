@@ -145,11 +145,13 @@ var app = new Vue ({
         },
 
         dropdown_menu: function(index) {
-                document.getElementsByTagName("dropdown-content")[index].classList.toggle("show");
+            /*document.getElementsByTagName("dropdown-content")[index].classList.toggle("show");*/                
+            document.getElementById("myDropdown").classList.toggle("show");
         },
 
-        delete_message: function() {
-
+        delete_message: function(index) {
+            console.log(index);
+            this.contacts[this.counter].messages.splice(index, 1);
         }
 
     }
