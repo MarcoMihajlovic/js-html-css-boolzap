@@ -92,7 +92,7 @@
             <main>
                 <div class="messages">
                     <div v-for="(message, index) in contacts[counter].messages" :class="(message.status == 'sent') ? 'flex-end' : 'flex-start'" class="message">
-                        <div :class="(message.status == 'sent') ? 'sent' : 'received'">
+                        <div @mouseleave="hide(index)"  :class="(message.status == 'sent') ? 'sent' : 'received'">
                             <div class="dropdown_div">
                                 {{message.text}}
                                 <a href="#" @click="dropdown_menu(index)"><i class="fas fa-chevron-down dropdown"></i></a>
