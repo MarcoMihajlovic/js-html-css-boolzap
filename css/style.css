@@ -218,20 +218,23 @@ header {
     display: none;
 }
 
-.container-right .show {
+.show {
     display: block;
 }
 
 .sent {
+    position: relative;
     background: #d5f9ba;
     padding: 20px;
     border-radius: 15px;
     width: 40%;
     margin: 10px 0;
     margin-right: 5%;
+    word-wrap: break-word;
 }
 
 .received {
+    position: relative;
     background: white;
     padding: 20px;
     border-radius: 15px;

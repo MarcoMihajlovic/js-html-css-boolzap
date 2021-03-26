@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg==" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
     <title>Document</title>
@@ -48,12 +49,12 @@
                    
                     <div class="search-bar">
                         <i class="fas fa-search"></i>
-                        <input placeholder="Cerca o inizia una nuova chat" type="text">
+                        <input placeholder="Cerca o inizia una nuova chat" v-model="search" type="text" @keyup="filter">
                     </div>
                    
                     <div class="friends">
                         
-                        <div  v-for="(contact, index) in contacts" :class="(index == counter) ? 'active' : null" class="friend" @click="click(index)">
+                        <div  v-for="(contact, index) in contacts" v-if="contact.visible" :class="(index == counter) ? 'active' : null" class="friend" @click="click(index)">
                             <img class="circle" :src="path + contacts[index].avatar + format" alt="">
                             <span>{{contacts[index].name}}</span>
                         </div>

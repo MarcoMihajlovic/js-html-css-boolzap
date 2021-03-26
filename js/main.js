@@ -6,6 +6,7 @@ var app = new Vue ({
         format: ".jpg",
         counter: 0,
         newText: "",
+        search:"",
 
         user: {
             name: 'Nome Utente',
@@ -105,13 +106,13 @@ var app = new Vue ({
             let thisContact = this.contacts[this.counter]; 
 
             var newMessage = {
-                date:'',
+                date:dayjs().format('DD MM YYYY hh:mm:ss'),
                 text: this.newText,
                 status: 'sent' 
             };
 
             var receivedMessage = {
-                date:'',
+                date:dayjs().format('DD MM YYYY hh:mm:ss'),
                 text:'Ok',
                 status:'received'
             };
@@ -129,6 +130,18 @@ var app = new Vue ({
             thisContact.messages.push(newMessage);
 
             this.newText = '';
+        },
+
+        filter: function() {
+            this.contacts.forEach((element) => {
+                if(element.name.includes(this.search.charAt(0).toUpperCase() + this.search.slice(1)))  {
+                    element.visible = true;
+                } else {
+                    element.visible = false;
+                }
+                
+            })
+
         }
 
     }
