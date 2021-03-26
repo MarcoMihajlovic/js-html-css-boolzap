@@ -7,6 +7,7 @@ var app = new Vue ({
         counter: 0,
         newText: "",
         search:"",
+        numero: 0,
 
         user: {
             name: 'Nome Utente',
@@ -146,7 +147,7 @@ var app = new Vue ({
 
         dropdown_menu: function(index) {
             /*document.getElementsByTagName("dropdown-content")[index].classList.toggle("show");*/                
-            document.getElementById("myDropdown").classList.toggle("show");
+            document.getElementById("myDropdown" + index).classList.toggle("show");
         },
 
         delete_message: function(index) {
