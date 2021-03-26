@@ -96,7 +96,7 @@
                             <div class="dropdown_div">
                                 {{message.text}}
                                 <a href="#" @click="dropdown_menu(index)"><i class="fas fa-chevron-down dropdown"></i></a>
-                                <div :id="'myDropdown' + index" class="dropdown-content">
+                                <div :id="'myDropdown' + index" class="dropdown-content" @mouseleave="hide(index)">
                                     <a href="#">Message Info</a>
                                     <a @click="delete_message(index)" href="#">Delete message</a>
                                 </div>

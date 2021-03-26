@@ -153,8 +153,15 @@ var app = new Vue ({
         delete_message: function(index) {
             console.log(index);
             this.contacts[this.counter].messages.splice(index, 1);
-        }
+        },
 
+        hide: function(index) {
+                var dropdown = document.getElementById("myDropdown" + index);
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+
+        }
     }
 })
 
