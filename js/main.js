@@ -142,9 +142,30 @@ var app = new Vue ({
                 
             })
 
+        },
+
+        dropdown_menu: function(index) {
+                document.getElementsByTagName("dropdown-content")[index].classList.toggle("show");
+        },
+
+        delete_message: function() {
+
         }
 
     }
 })
+
+window.onclick = function(event) {
+    if (!event.target.matches('.dropdown')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
 
 Vue.config.devtools = true;

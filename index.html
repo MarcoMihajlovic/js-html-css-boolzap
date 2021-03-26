@@ -56,7 +56,11 @@
                         
                         <div  v-for="(contact, index) in contacts" v-if="contact.visible" :class="(index == counter) ? 'active' : null" class="friend" @click="click(index)">
                             <img class="circle" :src="path + contacts[index].avatar + format" alt="">
-                            <span>{{contacts[index].name}}</span>
+                            <ul>
+                                <li><span>{{contacts[index].name}}</span></li>
+                                <li><span>{{contacts[index].messages[contacts[index].messages.length - 1].date}}</span></li>
+                            </ul>
+                            <span class="last-message">{{contacts[index].messages[contacts[index].messages.length - 1].text}}</span>
                         </div>
                     
                     </div>
@@ -73,7 +77,7 @@
                         <img class="circle" :src="path + contacts[counter].avatar + format" alt="">
                         <ul>
                             <li>{{contacts[counter].name}}</li>
-                            <li>Ultimo accesso oggi alle</li>
+                            <li>Ultimo accesso {{contacts[counter].messages[contacts[counter].messages.length - 1].date}} </li>
                         </ul>
                     </div>
                     
@@ -89,7 +93,14 @@
                 <div class="messages">
                     <div v-for="(message, index) in contacts[counter].messages" :class="(message.status == 'sent') ? 'flex-end' : 'flex-start'" class="message">
                         <div :class="(message.status == 'sent') ? 'sent' : 'received'">
-                            {{message.text}}
+                            <div class="dropdown_div">
+                                {{message.text}}
+                                <a href="#" @click="dropdown_menu(index)"><i class="fas fa-chevron-down dropdown"></i></a>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <a href="#">Message Info</a>
+                                    <a @click="delete_message" href="#">Delete message</a>
+                                </div>
+                            </div>
                             <span class="data">{{message.date}}</span>
                         </div>
                     </div>
